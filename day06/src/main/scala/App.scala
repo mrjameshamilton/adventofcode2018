@@ -48,6 +48,6 @@ object App {
 
   def part2(points: List[Point], maxDistance: Int): Int = {
     (generate_points _).tupled(get_boundaries(points))
-      .map(point => (point, points.foldLeft(0)(_ + distance(point, _)))).count(_._2 < maxDistance)
+      .map(point => points.foldLeft(0)(_ + distance(point, _))).count(_ < maxDistance)
   }
 }
